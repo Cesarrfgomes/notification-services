@@ -1,6 +1,6 @@
 import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common'
-import { NotificationsService } from './notifications.service'
-import CreateNotificationDto from './dtos/create-notification'
+import { NotificationsService } from '../services/notifications.service'
+import CreateNotificationDto from '../dtos/create-notification'
 import { Response } from 'express'
 
 @Controller('notifications')
