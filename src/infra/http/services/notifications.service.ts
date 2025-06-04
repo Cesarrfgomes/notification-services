@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { PrismaService } from '../../database/prisma/prisma.service'
 import CreateNotificationDto from '../dtos/create-notification'
 import { SendNotification } from '@app/use-cases/send-notification'
+import { NotificationViewModel } from '../view-models/notification-view-model'
 
 @Injectable()
 export class NotificationsService {
@@ -23,14 +24,14 @@ export class NotificationsService {
 	async createNotification(data: CreateNotificationDto) {
 		const { recipientId, content, category } = data
 
-		console.log(data)
-
 		const { notification } = await this.sendNotification.execute({
 			recipientId,
 			content,
 			category
 		})
 
-		return notification
+		return {
+			notification: NotificationViewModel.toHTTP(notification)
+		}
 	}
 }
