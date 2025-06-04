@@ -12,6 +12,7 @@ export class NotificationsController {
 		@Body() data: CreateNotificationDto,
 		@Res() res: Response
 	) {
+		console.log(data)
 		const notification =
 			await this.notificationsService.createNotification(data)
 
