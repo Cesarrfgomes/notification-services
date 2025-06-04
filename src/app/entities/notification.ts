@@ -19,6 +19,10 @@ export class Notification {
 		}
 	}
 
+	public set recipientId(recipientId: string) {
+		this.props.recipientId = recipientId
+	}
+
 	public set content(content: Content) {
 		this.props.content = content
 	}
@@ -29,6 +33,10 @@ export class Notification {
 
 	public set readAt(readAt: Date) {
 		this.props.readAt = readAt
+	}
+
+	public get recipientId(): string {
+		return this.props.recipientId
 	}
 
 	public get content(): Content {
