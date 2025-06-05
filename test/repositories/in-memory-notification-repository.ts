@@ -29,4 +29,23 @@ export class InMemoryNotificationRepository implements NotificationRepository {
 			this.notifications[notificationIndex] = notification
 		}
 	}
+
+	async countManyByRecipientId(recipientId: string): Promise<number> {
+		return this.notifications.filter(
+			notification => notification.recipientId === recipientId
+		).length
+	}
+
+	async findManyByRecipientId(recipientId: string): Promise<Notification[]> {
+		return this.notifications.filter(
+			notification => notification.recipientId === recipientId
+		)
+	}
+
+	async readNotification(notificationId: string): Promise<void> {
+		return
+	}
+	async unreadNotification(notificationId: string): Promise<void> {
+		throw new Error('Method not implemented.')
+	}
 }
